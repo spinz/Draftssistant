@@ -14,7 +14,8 @@ import {
   Trophy,
   X,
   Check,
-  HelpCircle
+  HelpCircle,
+  Info
 } from 'lucide-react';
 
 interface Player {
@@ -83,6 +84,22 @@ export default function DraftWarRoom() {
   const [loading, setLoading] = useState<boolean>(true);
   const [loadError, setLoadError] = useState<string>('');
   const [espnSyncErrors, setEspnSyncErrors] = useState<number>(0);
+
+  // ESPN Sync Health State
+  // gray: unconfigured OR live sync intentionally paused
+  // green: live sync enabled AND recent polls succeeding (< 2 errors)
+  // red: live sync enabled AND at least 2 consecutive failures
+  const syncState: 'unconfigured' | 'paused' | 'healthy' | 'degraded' | 'lost' = useMemo(() => {
+    if (!espnConfigured) return 'unconfigured';
+    if (!espnAutoSync) return 'paused';
+    if (espnSyncErrors >= 4) return 'lost';
+    if (espnSyncErrors >= 2) return 'degraded';
+    return 'healthy';
+  }, [espnConfigured, espnAutoSync, espnSyncErrors]);
+
+  const isSyncHealthy = syncState === 'healthy';
+  const syncLockedTooltip =
+    'Live Sync is active — picks are logged automatically from ESPN. Pause sync to draft manually.';
 
   // Draft active state
   const [draftHistory, setDraftHistory] = useState<PickRecord[]>([]);
@@ -267,7 +284,10 @@ export default function DraftWarRoom() {
     async function pollEspn() {
       try {
         const res = await fetch('/api/espn');
-        if (!res.ok) return;
+        if (!res.ok) {
+          setEspnSyncErrors(prev => prev + 1);
+          return;
+        }
         const data = await res.json();
         if (!isMounted) return;
 
@@ -355,6 +375,8 @@ export default function DraftWarRoom() {
           });
 
           setEspnSyncErrors(0);
+        } else {
+          setEspnSyncErrors(prev => prev + 1);
         }
       } catch (err) {
         console.warn('ESPN polling error:', err);
@@ -781,13 +803,34 @@ export default function DraftWarRoom() {
             <button
               onClick={() => setEspnModalOpen(true)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all ${
-                espnConfigured
-                  ? 'bg-red-950/40 border-red-500/50 text-red-300 hover:bg-red-900/50 shadow-sm'
-                  : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-300'
+                !espnConfigured || !espnAutoSync
+                  ? 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-300'
+                  : syncState === 'healthy'
+                  ? 'bg-emerald-950/40 hover:bg-emerald-900/40 border-emerald-500/40 text-emerald-300 shadow-sm'
+                  : 'bg-red-950/40 hover:bg-red-900/50 border-red-500/50 text-red-300 shadow-sm'
               }`}
+              title={
+                !espnConfigured
+                  ? 'ESPN unconfigured — click to connect'
+                  : !espnAutoSync
+                  ? 'Live Sync is paused (manual mode)'
+                  : syncState === 'healthy'
+                  ? 'Live Sync healthy'
+                  : `Live Sync degraded (${espnSyncErrors} failed polls)`
+              }
             >
-              <span className={`w-2 h-2 rounded-full ${espnConfigured ? 'bg-emerald-400 animate-pulse' : 'bg-slate-500'}`} />
-              <span className="font-bold text-red-400">ESPN</span>
+              <span
+                className={`w-2 h-2 rounded-full ${
+                  syncState === 'healthy'
+                    ? 'bg-emerald-400 animate-pulse'
+                    : syncState === 'degraded' || syncState === 'lost'
+                    ? 'bg-red-500 animate-pulse'
+                    : 'bg-slate-500'
+                }`}
+              />
+              <span className={`font-bold ${syncState === 'degraded' || syncState === 'lost' ? 'text-red-400' : 'text-slate-200'}`}>
+                ESPN
+              </span>
               <span className="hidden sm:inline">
                 {espnConfigured ? espnLeagueName.slice(0, 14) : 'Connect League'}
               </span>
@@ -932,30 +975,74 @@ export default function DraftWarRoom() {
                   Team: <strong className="text-slate-200">{espnMyTeamName || 'My Team'}</strong>
                 </span>
                 <button
-                  onClick={() => setEspnAutoSync(!espnAutoSync)}
+                  onClick={() => {
+                    const nextSync = !espnAutoSync;
+                    setEspnAutoSync(nextSync);
+                    if (nextSync) setEspnSyncErrors(0);
+                  }}
                   className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded font-mono text-[11px] border transition-all ${
-                    espnAutoSync
-                      ? 'bg-emerald-950/60 text-emerald-300 border-emerald-500/50'
-                      : 'bg-slate-800 text-slate-400 border-slate-700'
+                    !espnAutoSync
+                      ? 'bg-slate-800 hover:bg-slate-700 text-slate-400 border-slate-700'
+                      : syncState === 'healthy'
+                      ? 'bg-emerald-950/60 hover:bg-emerald-900/60 text-emerald-300 border-emerald-500/50'
+                      : 'bg-red-950/60 hover:bg-red-900/60 text-red-300 border-red-500/50'
                   }`}
+                  title={
+                    !espnAutoSync
+                      ? 'Live Sync is paused (manual mode active). Click to resume auto-sync.'
+                      : syncState === 'healthy'
+                      ? 'Live Sync is healthy. Click to pause and switch to manual mode.'
+                      : `Live Sync degraded (${espnSyncErrors} consecutive failed polls). Click to pause and switch to manual mode.`
+                  }
                 >
-                  <RefreshCw className={`w-3 h-3 ${espnAutoSync ? 'animate-spin' : ''}`} />
-                  {espnAutoSync ? 'Live Sync ON' : 'Live Sync Paused'}
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      !espnAutoSync
+                        ? 'bg-slate-500'
+                        : syncState === 'healthy'
+                        ? 'bg-emerald-400 animate-pulse'
+                        : 'bg-red-500 animate-pulse'
+                    }`}
+                  />
+                  <RefreshCw className={`w-3 h-3 ${espnAutoSync && syncState === 'healthy' ? 'animate-spin' : ''}`} />
+                  {espnAutoSync
+                    ? syncState === 'lost'
+                      ? 'Sync Lost'
+                      : syncState === 'degraded'
+                      ? 'Sync Failing'
+                      : 'Live Sync ON'
+                    : 'Live Sync Paused'}
                 </button>
                 {espnLastSync && (
                   <span className="text-[10px] text-slate-500 font-mono hidden md:inline">
                     Synced: {espnLastSync}
                   </span>
                 )}
-                {espnSyncErrors >= 2 && (
-                  <span className="text-[10px] text-amber-400 font-mono flex items-center gap-1">
-                    <AlertTriangle className="w-3 h-3 text-amber-400" />
-                    Sync retry ({espnSyncErrors})
+                {espnAutoSync && espnSyncErrors >= 2 && espnSyncErrors < 4 && (
+                  <span className="text-[10px] text-red-400 font-mono flex items-center gap-1 font-semibold">
+                    <AlertTriangle className="w-3 h-3 text-red-400" />
+                    Sync failing ({espnSyncErrors})
                   </span>
                 )}
               </div>
             )}
           </div>
+
+          {/* Persistent warning after four consecutive failures near the clock */}
+          {espnConfigured && espnAutoSync && espnSyncErrors >= 4 && (
+            <div className="max-w-7xl mx-auto mt-2 pt-2 border-t border-red-500/40 flex flex-wrap items-center justify-between gap-2 text-xs text-red-200 bg-red-950/70 px-3 py-2 rounded-lg">
+              <div className="flex items-center gap-2 font-bold text-red-300">
+                <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
+                <span>ESPN sync lost — switch to manual mode</span>
+              </div>
+              <button
+                onClick={() => setEspnAutoSync(false)}
+                className="px-3 py-1 rounded bg-red-700 hover:bg-red-600 text-white font-bold text-xs transition-colors border border-red-500 shadow-sm"
+              >
+                Switch to Manual Mode
+              </button>
+            </div>
+          )}
         </div>
       </header>
 
@@ -1099,6 +1186,33 @@ export default function DraftWarRoom() {
             </span>
           </div>
 
+          {/* Visible Manual Mode Explanation Banner */}
+          {!isSyncHealthy && (
+            <div className="mb-4 px-3.5 py-2.5 rounded-lg bg-amber-950/30 border border-amber-500/40 text-xs text-amber-200 flex flex-wrap items-center justify-between gap-2 shadow-sm">
+              <div className="flex items-center gap-2">
+                <Info className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>
+                  {!espnConfigured
+                    ? 'Manual Mode Active: Connect ESPN to enable live draft sync, or use manual draft controls below.'
+                    : !espnAutoSync
+                    ? 'Manual Mode Active: Live Sync is paused. "Draft for Me" and "Taken" buttons are unlocked for manual logging.'
+                    : 'Manual Override Active: ESPN sync is degraded. Manual draft controls are unlocked so your board stays accurate.'}
+                </span>
+              </div>
+              {espnConfigured && !espnAutoSync && (
+                <button
+                  onClick={() => {
+                    setEspnAutoSync(true);
+                    setEspnSyncErrors(0);
+                  }}
+                  className="text-[11px] font-bold text-cyan-400 hover:text-cyan-300 underline shrink-0"
+                >
+                  Resume Live Sync
+                </button>
+              )}
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {recommendations.map((rec, idx) => {
               const p = rec.player;
@@ -1188,21 +1302,30 @@ export default function DraftWarRoom() {
                   <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center gap-2">
                     <button
                       onClick={() => handleDraftForMe(p)}
-                      className={`flex-1 py-2 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 text-white transition-all shadow-md ${
-                        isEmerald
-                          ? 'bg-emerald-600 hover:bg-emerald-500'
+                      disabled={isSyncHealthy}
+                      title={isSyncHealthy ? syncLockedTooltip : 'Draft for my team'}
+                      className={`flex-1 py-2 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md ${
+                        isSyncHealthy
+                          ? 'bg-slate-800 text-slate-500 border border-slate-700/60 cursor-not-allowed shadow-none'
+                          : isEmerald
+                          ? 'bg-emerald-600 hover:bg-emerald-500 text-white'
                           : isAmber
-                          ? 'bg-amber-600 hover:bg-amber-500'
-                          : 'bg-blue-600 hover:bg-blue-500'
+                          ? 'bg-amber-600 hover:bg-amber-500 text-white'
+                          : 'bg-blue-600 hover:bg-blue-500 text-white'
                       }`}
                     >
-                      <CheckCircle2 className="w-4 h-4" />
+                      <CheckCircle2 className={`w-4 h-4 ${isSyncHealthy ? 'text-slate-500' : ''}`} />
                       Draft for Me
                     </button>
                     <button
                       onClick={() => handlePlayerTaken(p)}
-                      className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-xs transition-colors border border-slate-700"
-                      title="Mark as drafted by someone else"
+                      disabled={isSyncHealthy}
+                      title={isSyncHealthy ? syncLockedTooltip : 'Mark as drafted by someone else'}
+                      className={`px-3 py-2 rounded-lg font-medium text-xs transition-colors border ${
+                        isSyncHealthy
+                          ? 'bg-slate-800/50 text-slate-600 border-slate-800 cursor-not-allowed'
+                          : 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border-slate-700'
+                      }`}
                     >
                       Taken
                     </button>
@@ -1450,8 +1573,19 @@ export default function DraftWarRoom() {
                     {pos}
                   </button>
                 ))}
-                <div className="ml-auto text-xs text-slate-400">
-                  {filteredPlayers.length} available
+                <div className="ml-auto flex items-center gap-2">
+                  {!isSyncHealthy ? (
+                    <span className="text-[11px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold">
+                      Manual Controls Active
+                    </span>
+                  ) : (
+                    <span className="text-[11px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+                      Live Sync Active (Locked)
+                    </span>
+                  )}
+                  <div className="text-xs text-slate-400">
+                    {filteredPlayers.length} available
+                  </div>
                 </div>
               </div>
 
@@ -1553,15 +1687,25 @@ export default function DraftWarRoom() {
                             <div className="flex items-center justify-end gap-1.5">
                               <button
                                 onClick={() => handleDraftForMe(player)}
-                                className="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] transition-colors shadow-sm"
-                                title="Draft for my team"
+                                disabled={isSyncHealthy}
+                                title={isSyncHealthy ? syncLockedTooltip : 'Draft for my team'}
+                                className={`px-2.5 py-1 rounded font-bold text-[11px] transition-colors shadow-sm ${
+                                  isSyncHealthy
+                                    ? 'bg-slate-800 text-slate-500 border border-slate-700/50 cursor-not-allowed shadow-none'
+                                    : 'bg-emerald-600 hover:bg-emerald-500 text-white'
+                                }`}
                               >
                                 Draft
                               </button>
                               <button
                                 onClick={() => handlePlayerTaken(player)}
-                                className="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 text-[11px] transition-colors border border-slate-700"
-                                title="Mark drafted by opponent"
+                                disabled={isSyncHealthy}
+                                title={isSyncHealthy ? syncLockedTooltip : 'Mark drafted by opponent'}
+                                className={`px-2 py-1 rounded text-[11px] transition-colors border ${
+                                  isSyncHealthy
+                                    ? 'bg-slate-800/50 text-slate-600 border-slate-800 cursor-not-allowed'
+                                    : 'bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 border-slate-700'
+                                }`}
                               >
                                 Taken
                               </button>
