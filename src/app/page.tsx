@@ -1,9 +1,7 @@
 'use client';
 
-import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import Link from 'next/link';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import {
-  ArrowLeft,
   Shield,
   Zap,
   Flame,
@@ -14,20 +12,16 @@ import {
   AlertTriangle,
   RefreshCw,
   Trophy,
-  Link2,
   X,
   Check,
-  Radio,
-  Settings,
-  HelpCircle,
-  ExternalLink
+  HelpCircle
 } from 'lucide-react';
 
 interface Player {
   id: string;
   espn_id?: string;
   name: string;
-  pos: 'QB' | 'RB' | 'WR' | 'TE' | 'K' | 'DEF';
+  pos: 'QB' | 'RB' | 'WR' | 'TE' | 'K' | 'DEF' | 'FLEX';
   team: string;
   bye: number;
   search_rank: number;
@@ -54,6 +48,7 @@ interface PickRecord {
   round: number;
   pickInRound: number;
   teamSlot: number;
+  teamName?: string;
   isUser: boolean;
   player: Player;
   timestamp: string;
@@ -86,6 +81,8 @@ export default function DraftWarRoom() {
   // Data state
   const [allPlayers, setAllPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [loadError, setLoadError] = useState<string>('');
+  const [espnSyncErrors, setEspnSyncErrors] = useState<number>(0);
 
   // Draft active state
   const [draftHistory, setDraftHistory] = useState<PickRecord[]>([]);
@@ -94,24 +91,30 @@ export default function DraftWarRoom() {
   const [selectedTier, setSelectedTier] = useState<string>('ALL');
   const [sortBy, setSortBy] = useState<'vorp' | 'adp' | 'pts'>('vorp');
 
-  // Load initial player data
-  useEffect(() => {
-    async function loadData() {
-      try {
-        setLoading(true);
-        const res = await fetch('/api/draft');
-        const data = await res.json();
-        if (data.success) {
-          setAllPlayers(data.players || []);
-        }
-      } catch (err) {
-        console.error('Failed to load fantasy dataset:', err);
-      } finally {
-        setLoading(false);
+  // Load initial player data with retry support
+  const loadPlayerData = useCallback(async () => {
+    try {
+      setLoading(true);
+      setLoadError('');
+      const res = await fetch('/api/draft');
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      if (data.success && Array.isArray(data.players)) {
+        setAllPlayers(data.players);
+      } else {
+        throw new Error(data.error || 'Invalid player data response');
       }
+    } catch (err: any) {
+      console.error('Failed to load fantasy dataset:', err);
+      setLoadError('Failed to load fantasy player dataset. Click to retry.');
+    } finally {
+      setLoading(false);
     }
-    loadData();
   }, []);
+
+  useEffect(() => {
+    loadPlayerData();
+  }, [loadPlayerData]);
 
   // Check saved ESPN configuration on load
   useEffect(() => {
@@ -122,21 +125,24 @@ export default function DraftWarRoom() {
         if (data.configured && data.success) {
           setEspnConfigured(true);
           setEspnLeagueName(data.leagueName || 'ESPN League');
+          if (data.totalTeams && typeof data.totalTeams === 'number') {
+            setNumTeams(data.totalTeams);
+          }
           if (data.myTeam) setEspnMyTeamName(data.myTeam.name);
           if (data.myDraftSlot) {
             setUserSlot(data.myDraftSlot);
-            try { localStorage.setItem('warroom_slot', data.myDraftSlot.toString()); } catch (e) {}
+            try { localStorage.setItem('warroom_slot', data.myDraftSlot.toString()); } catch (_e) {}
           }
           if (data.scoring?.detectedScoring) {
             setScoring(data.scoring.detectedScoring);
-            try { localStorage.setItem('warroom_scoring', data.scoring.detectedScoring); } catch (e) {}
+            try { localStorage.setItem('warroom_scoring', data.scoring.detectedScoring); } catch (_e) {}
           }
           if (data.rosterConfig?.wr >= 3) {
             setRosterFormat('3wr');
-            try { localStorage.setItem('warroom_format', '3wr'); } catch (e) {}
+            try { localStorage.setItem('warroom_format', '3wr'); } catch (_e) {}
           } else {
             setRosterFormat('2wr');
-            try { localStorage.setItem('warroom_format', '2wr'); } catch (e) {}
+            try { localStorage.setItem('warroom_format', '2wr'); } catch (_e) {}
           }
           setEspnAutoSync(true);
         }
@@ -180,7 +186,7 @@ export default function DraftWarRoom() {
       localStorage.setItem('warroom_scoring', scoring);
       localStorage.setItem('warroom_format', rosterFormat);
       localStorage.setItem('warroom_history', JSON.stringify(draftHistory));
-    } catch (e) {}
+    } catch (_e) {}
   }, [userSlot, scoring, rosterFormat, draftHistory]);
 
   // Drafted player IDs
@@ -290,25 +296,62 @@ export default function DraftWarRoom() {
               matchedPlayer = byNormName.get(clean);
             }
 
-            if (matchedPlayer) {
-              newHistory.push({
-                pickNo: ep.overallPick,
-                round: ep.round,
-                pickInRound: ep.roundPick,
-                teamSlot: ep.teamId,
-                isUser: ep.isUser,
-                player: matchedPlayer,
-                timestamp: new Date().toLocaleTimeString()
-              });
+            // Fallback placeholder for unmatched players to keep draft turn math authoritative
+            if (!matchedPlayer) {
+              matchedPlayer = {
+                id: 'espn-' + ep.playerId,
+                espn_id: String(ep.playerId),
+                name: ep.playerName || ('Player #' + ep.playerId),
+                pos: 'FLEX',
+                team: 'NFL',
+                bye: 0,
+                search_rank: 9999,
+                adp_ppr: 999,
+                adp_half: 999,
+                adp_std: 999,
+                pts_ppr: 0,
+                pts_half: 0,
+                pts_std: 0,
+                injury: null,
+                age: null,
+                years_exp: 0,
+                depth: 99,
+                pos_rank: 'BN',
+                pos_rank_num: 99,
+                vorp_ppr: 0,
+                vorp_half: 0,
+                vorp_std: 0,
+                tier: 6
+              };
             }
+
+            newHistory.push({
+              pickNo: ep.overallPick,
+              round: ep.round,
+              pickInRound: ep.roundPick,
+              teamSlot: ep.draftSlot || ep.teamId,
+              teamName: ep.teamName || ('Slot #' + (ep.draftSlot || ep.teamId)),
+              isUser: ep.isUser,
+              player: matchedPlayer,
+              timestamp: new Date().toLocaleTimeString()
+            });
           });
 
-          if (newHistory.length > 0 && newHistory.length !== draftHistory.length) {
-            setDraftHistory(newHistory);
-          }
+          // Authoritative snapshot reconciliation: updates if count, players, or order differ
+          setDraftHistory(prev => {
+            const hasChanged = newHistory.length !== prev.length ||
+              newHistory.some((np, idx) => {
+                const op = prev[idx];
+                return !op || op.pickNo !== np.pickNo || op.player.id !== np.player.id || op.teamSlot !== np.teamSlot;
+              });
+            return hasChanged ? newHistory : prev;
+          });
+
+          setEspnSyncErrors(0);
         }
       } catch (err) {
         console.warn('ESPN polling error:', err);
+        setEspnSyncErrors(prev => prev + 1);
       }
     }
 
@@ -347,6 +390,9 @@ export default function DraftWarRoom() {
         const detailRes = await fetch('/api/espn');
         const detail = await detailRes.json();
         if (detail.success) {
+          if (detail.totalTeams && typeof detail.totalTeams === 'number') {
+            setNumTeams(detail.totalTeams);
+          }
           if (detail.myTeam) setEspnMyTeamName(detail.myTeam.name);
           if (detail.myDraftSlot) setUserSlot(detail.myDraftSlot);
           if (detail.scoring?.detectedScoring) setScoring(detail.scoring.detectedScoring);
@@ -379,13 +425,13 @@ export default function DraftWarRoom() {
         gain.connect(ctx.destination);
         osc.start();
         osc.stop(ctx.currentTime + 0.35);
-      } catch (e) {}
+      } catch (_e) {}
     }
   }, [isMyTurn]);
 
   // Roster counts
   const rosterCounts = useMemo(() => {
-    const counts = { QB: 0, RB: 0, WR: 0, TE: 0, K: 0, DEF: 0 };
+    const counts: Record<string, number> = { QB: 0, RB: 0, WR: 0, TE: 0, K: 0, DEF: 0, FLEX: 0 };
     myRoster.forEach(p => {
       if (counts[p.pos] !== undefined) counts[p.pos]++;
     });
@@ -643,6 +689,7 @@ export default function DraftWarRoom() {
       round: currentRound,
       pickInRound: pickInCurrentRound,
       teamSlot: userSlot,
+      teamName: espnMyTeamName || ('Slot #' + userSlot + ' (YOU)'),
       isUser: true,
       player: player,
       timestamp: new Date().toLocaleTimeString()
@@ -656,6 +703,7 @@ export default function DraftWarRoom() {
       round: currentRound,
       pickInRound: pickInCurrentRound,
       teamSlot: currentTeamSlot,
+      teamName: 'Slot #' + currentTeamSlot,
       isUser: false,
       player: player,
       timestamp: new Date().toLocaleTimeString()
@@ -672,7 +720,7 @@ export default function DraftWarRoom() {
       setDraftHistory([]);
       try {
         localStorage.removeItem('warroom_history');
-      } catch (e) {}
+      } catch (_e) {}
     }
   };
 
@@ -746,7 +794,7 @@ export default function DraftWarRoom() {
                 onChange={e => setUserSlot(parseInt(e.target.value, 10))}
                 className="bg-slate-900 text-emerald-400 font-bold text-sm px-2 py-0.5 rounded border border-slate-700 focus:outline-none focus:border-emerald-500 cursor-pointer"
               >
-                {[...Array(12)].map((_, i) => (
+                {[...Array(numTeams)].map((_, i) => (
                   <option key={i + 1} value={i + 1}>
                     Slot #{i + 1}
                   </option>
@@ -892,11 +940,42 @@ export default function DraftWarRoom() {
                     Synced: {espnLastSync}
                   </span>
                 )}
+                {espnSyncErrors >= 2 && (
+                  <span className="text-[10px] text-amber-400 font-mono flex items-center gap-1">
+                    <AlertTriangle className="w-3 h-3 text-amber-400" />
+                    Sync retry ({espnSyncErrors})
+                  </span>
+                )}
               </div>
             )}
           </div>
         </div>
       </header>
+
+      {/* Loading Banner */}
+      {loading && allPlayers.length === 0 && (
+        <div className="bg-slate-900/90 border-b border-slate-800 px-4 py-2 text-xs flex items-center justify-center gap-2 text-slate-400">
+          <RefreshCw className="w-3.5 h-3.5 animate-spin text-emerald-400" />
+          <span>Loading fantasy player projections and ADP pool...</span>
+        </div>
+      )}
+
+      {/* Error Alert / Retry Banner */}
+      {loadError && (
+        <div className="bg-red-950/80 border-b border-red-500/60 px-4 py-2 text-xs flex items-center justify-between text-red-200">
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
+            <span>{loadError}</span>
+          </div>
+          <button
+            onClick={loadPlayerData}
+            className="px-3 py-1 bg-red-600 hover:bg-red-500 text-white font-bold rounded flex items-center gap-1.5 transition-colors shadow-sm"
+          >
+            <RefreshCw className="w-3 h-3" />
+            Retry
+          </button>
+        </div>
+      )}
 
       {/* ESPN CONNECTION MODAL */}
       {espnModalOpen && (
@@ -1289,8 +1368,8 @@ export default function DraftWarRoom() {
                         {rec.player.pos}
                       </span>
                     </div>
-                    <span className="text-[10px] text-slate-400">
-                      {rec.isUser ? 'YOU' : `Team ${rec.teamSlot}`}
+                    <span className="text-[10px] text-slate-400 truncate max-w-[150px]">
+                      {rec.isUser ? 'YOU' : (rec.teamName || ('Slot #' + rec.teamSlot))}
                     </span>
                   </div>
                 ))}

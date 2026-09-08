@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nova // Mission Control",
-  description: "Homelab & Network Operations Dashboard",
+  title: "Draftssistant // AI Fantasy Football War Room",
+  description: "Real-time AI-assisted live fantasy football snake draft assistant and war room",
 };
 
 export default function RootLayout({

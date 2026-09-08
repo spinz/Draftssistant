@@ -1,6 +1,7 @@
 import urllib.request
 import json
 import re
+import os
 
 print("Starting Custom ESPN Calibrated Fantasy Football Dataset Build...")
 
@@ -231,7 +232,7 @@ final_players.sort(key=lambda x: (x['adp_ppr'] if x['adp_ppr'] > 0 else 999, -x[
 
 trimmed_players = final_players[:380]
 
-out_path = '/home/robbie/nova-dashboard/src/data/fantasy_players.json'
+out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fantasy_players.json')
 with open(out_path, 'w', encoding='utf-8') as f:
     json.dump({
         'updated_at': '2026-09-08',

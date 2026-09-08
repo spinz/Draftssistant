@@ -73,25 +73,18 @@ async function fetchEspnLeagueData(leagueId: string, espn_s2: string, swid: stri
   throw new Error(lastError || 'Unable to connect to ESPN league');
 }
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    const { searchParams } = new URL(request.url);
-    const qLeagueId = searchParams.get('leagueId');
-    const qEspnS2 = searchParams.get('espn_s2');
-    const qSwid = searchParams.get('swid');
-
     const saved = loadSavedConfig();
 
-    const leagueId = qLeagueId || saved?.leagueId;
-    const espn_s2 = qEspnS2 || saved?.espn_s2;
-    const swid = qSwid || saved?.swid;
-
-    if (!leagueId || !espn_s2 || !swid) {
+    if (!saved?.leagueId || !saved?.espn_s2 || !saved?.swid) {
       return NextResponse.json({
         configured: false,
-        message: 'ESPN credentials not provided or saved'
+        message: 'ESPN credentials not configured'
       });
     }
+
+    const { leagueId, espn_s2, swid } = saved;
 
     const { data, season } = await fetchEspnLeagueData(leagueId, espn_s2, swid);
 
@@ -167,17 +160,25 @@ export async function GET(request: Request) {
       if (fs.existsSync(idToNamePath)) {
         espnNameMap = JSON.parse(fs.readFileSync(idToNamePath, 'utf-8'));
       }
-    } catch (e) {}
+    } catch (_e) {}
 
     const picks = rawPicks.map((p: any) => {
       const team = teams.find((t: any) => t.id === p.teamId);
       const pName = espnNameMap[String(p.playerId)] || null;
+      let draftSlot = p.roundPickNumber;
+      if (pickOrder.length > 0) {
+        const slotIdx = pickOrder.indexOf(p.teamId);
+        if (slotIdx !== -1) draftSlot = slotIdx + 1;
+      }
+      const displayName = team?.name ? `${team.name} (Slot #${draftSlot})` : `Slot #${draftSlot}`;
+
       return {
         overallPick: p.overallPickNumber,
         round: p.roundId,
         roundPick: p.roundPickNumber,
         teamId: p.teamId,
-        teamName: team?.name || ('Team ' + p.teamId),
+        draftSlot: draftSlot,
+        teamName: displayName,
         playerId: p.playerId,
         playerName: pName,
         isUser: myTeam ? p.teamId === myTeam.id : false
