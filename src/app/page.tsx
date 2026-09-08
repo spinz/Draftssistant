@@ -173,7 +173,7 @@ export default function DraftWarRoom() {
       if (savedHistory) {
         const parsed = JSON.parse(savedHistory);
         if (Array.isArray(parsed)) {
-          const sanitized = parsed.filter(p => p && p.player && p.player.id && !p.player.id.includes('-1'));
+          const sanitized = parsed.filter(p => p && p.player && p.player.id && p.player.id !== 'espn--1' && p.player.id !== 'espn-0');
           setDraftHistory(sanitized);
         }
       }
@@ -273,7 +273,10 @@ export default function DraftWarRoom() {
 
         if (data.success && data.draft?.picks) {
           setEspnLastSync(new Date().toLocaleTimeString());
-          const espnPicks = (data.draft.picks as any[]).filter((ep: any) => ep.playerId && Number(ep.playerId) > 0);
+          // Exclude confirmed future-slot sentinel (-1) and 0/null; keep negative IDs for real D/ST entries (e.g. -16001)
+          const espnPicks = (data.draft.picks as any[]).filter(
+            (ep: any) => ep.playerId != null && Number(ep.playerId) !== -1 && Number(ep.playerId) !== 0
+          );
 
           // If draft order was just revealed/updated
           if (data.myDraftSlot && data.myDraftSlot !== userSlot) {
@@ -301,12 +304,13 @@ export default function DraftWarRoom() {
 
             // Fallback placeholder for unmatched players to keep draft turn math authoritative
             if (!matchedPlayer) {
+              const isDefense = String(ep.playerId).startsWith('-16');
               matchedPlayer = {
                 id: 'espn-' + ep.playerId,
                 espn_id: String(ep.playerId),
-                name: ep.playerName || ('Player #' + ep.playerId),
-                pos: 'FLEX',
-                team: 'NFL',
+                name: ep.playerName || (isDefense ? 'D/ST #' + ep.playerId : 'Player #' + ep.playerId),
+                pos: isDefense ? 'DEF' : 'FLEX',
+                team: isDefense ? (ep.playerName?.split(' ')[0] || 'NFL') : 'NFL',
                 bye: 0,
                 search_rank: 9999,
                 adp_ppr: 999,
@@ -319,7 +323,7 @@ export default function DraftWarRoom() {
                 age: null,
                 years_exp: 0,
                 depth: 99,
-                pos_rank: 'BN',
+                pos_rank: isDefense ? 'DEF' : 'BN',
                 pos_rank_num: 99,
                 vorp_ppr: 0,
                 vorp_half: 0,

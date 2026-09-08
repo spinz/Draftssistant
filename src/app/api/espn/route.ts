@@ -162,9 +162,10 @@ export async function GET() {
       }
     } catch (_e) {}
 
-    // Only include picks that have actually been drafted (ESPN uses playerId > 0 for completed picks, and -1 for unmade/future slots)
+    // Exclude confirmed future-slot sentinel value (-1) and null/undefined IDs.
+    // Note: ESPN uses negative IDs (e.g., -16001 for Falcons D/ST) for real defense selections.
     const picks = rawPicks
-      .filter((p: any) => p.playerId && Number(p.playerId) > 0)
+      .filter((p: any) => p.playerId != null && Number(p.playerId) !== -1 && Number(p.playerId) !== 0)
       .map((p: any) => {
       const team = teams.find((t: any) => t.id === p.teamId);
       const pName = espnNameMap[String(p.playerId)] || null;
