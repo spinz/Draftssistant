@@ -1387,10 +1387,10 @@ export default function DraftWarRoom() {
                   }`}>
                     <div className="flex items-center justify-between font-bold">
                       <span className="text-cyan-400">#48 / #49</span>
-                      <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">🎯 BROWNS RB</span>
+                      <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">🎯 BROWNS RB + QB?</span>
                     </div>
-                    <div className="truncate text-amber-200 font-bold">A: Q. Judkins (ADP 49.9) + WR</div>
-                    <div className="text-[10px] text-slate-400 truncate">B: D. Montgomery / Swift (+45 VORP)</div>
+                    <div className="truncate text-amber-200 font-bold">A: Q. Judkins + Drake Maye/Burrow (QB)</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: D. Montgomery/Swift + Zay Flowers/Waddle</div>
                   </div>
 
                   {/* Turn 4: 72/73 */}
@@ -1401,10 +1401,10 @@ export default function DraftWarRoom() {
                   }`}>
                     <div className="flex items-center justify-between font-bold">
                       <span className="text-cyan-400">#72 / #73</span>
-                      <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">🎯 BROWNS TE</span>
+                      <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">🎯 BROWNS TE + QB?</span>
                     </div>
-                    <div className="truncate text-amber-200 font-bold">A: H. Fannin Jr (ADP 71.3) + WR</div>
-                    <div className="text-[10px] text-slate-400 truncate">B: Tucker Kraft / Kyle Pitts / Kittle</div>
+                    <div className="truncate text-amber-200 font-bold">A: H. Fannin Jr + Jayden Daniels/Caleb (QB)</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: Tucker Kraft/Pitts + Odunze/Watson (WR)</div>
                   </div>
 
                   {/* Turn 5: 96/97 */}
@@ -1415,10 +1415,10 @@ export default function DraftWarRoom() {
                   }`}>
                     <div className="flex items-center justify-between font-bold">
                       <span className="text-cyan-400">#96 / #97</span>
-                      <span className="text-[10px] text-cyan-300">QB1 / WR DEPTH</span>
+                      <span className="text-[10px] text-cyan-300">WR / RB CEILING</span>
                     </div>
-                    <div className="truncate text-slate-200">A: J. Daniels / Nix + WR Ceiling</div>
-                    <div className="text-[10px] text-slate-400 truncate">B: Stafford / Purdy + RB Handcuff</div>
+                    <div className="truncate text-slate-200">A: High-Upside WR/RB (Stafford/Nix if QB needed)</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: Parker Washington / Sutton / Handcuffs</div>
                   </div>
 
                   {/* Turn 6: 120/121 */}
