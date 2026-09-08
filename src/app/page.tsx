@@ -1213,7 +1213,7 @@ export default function DraftWarRoom() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
             {recommendations.map((rec, idx) => {
               const p = rec.player;
               const isAmber = rec.color === 'amber';
@@ -1333,6 +1333,148 @@ export default function DraftWarRoom() {
                 </div>
               );
             })}
+
+            {/* 4th Column: SLOT 1.01 BATTLE CARD & BROWNS RADAR */}
+            <div className="relative flex flex-col justify-between rounded-xl border border-cyan-500/40 bg-gradient-to-b from-slate-900/90 to-cyan-950/30 p-4 shadow-lg backdrop-blur-sm">
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border-cyan-500/40">
+                    SLOT 1.01 STRATEGY
+                  </span>
+                  <span className="text-xs font-semibold text-emerald-400">
+                    BROWNS RADAR
+                  </span>
+                </div>
+
+                <h3 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
+                  <span>Turn Blueprint & Contingencies</span>
+                </h3>
+
+                {/* Turn-by-Turn Compact Timeline */}
+                <div className="space-y-1.5 max-h-[220px] overflow-y-auto pr-1 text-[11px] font-mono">
+                  {/* Pick 1 */}
+                  <div className={`p-1.5 rounded border transition-all ${
+                    currentPick <= 1
+                      ? 'bg-emerald-950/60 border-emerald-500/70 text-emerald-200 shadow-sm ring-1 ring-emerald-500/30'
+                      : 'bg-slate-950/40 border-slate-800/80 text-slate-300'
+                  }`}>
+                    <div className="flex items-center justify-between font-bold">
+                      <span className="text-cyan-400">#1 (1.01)</span>
+                      <span className="text-[10px] text-emerald-400">👑 BELLCOW</span>
+                    </div>
+                    <div className="truncate text-slate-200">A: Gibbs / Bijan / Chase</div>
+                  </div>
+
+                  {/* Turn 2: 24/25 */}
+                  <div className={`p-1.5 rounded border transition-all ${
+                    currentPick >= 2 && currentPick <= 25
+                      ? 'bg-emerald-950/60 border-emerald-500/70 text-emerald-200 shadow-sm ring-1 ring-emerald-500/30'
+                      : 'bg-slate-950/40 border-slate-800/80 text-slate-300'
+                  }`}>
+                    <div className="flex items-center justify-between font-bold">
+                      <span className="text-cyan-400">#24 / #25</span>
+                      <span className="text-[10px] text-amber-300">CORE STACK</span>
+                    </div>
+                    <div className="truncate text-slate-200">A: Nico/London + Bowers/McBride</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: Nabers/Pickens + Hall/Walker</div>
+                  </div>
+
+                  {/* Turn 3: 48/49 */}
+                  <div className={`p-1.5 rounded border transition-all ${
+                    currentPick >= 26 && currentPick <= 49
+                      ? 'bg-amber-950/60 border-amber-500/80 text-amber-200 shadow-sm ring-1 ring-amber-500/40'
+                      : 'bg-slate-950/40 border-slate-800/80 text-slate-300'
+                  }`}>
+                    <div className="flex items-center justify-between font-bold">
+                      <span className="text-cyan-400">#48 / #49</span>
+                      <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">🎯 BROWNS RB</span>
+                    </div>
+                    <div className="truncate text-amber-200 font-bold">A: Q. Judkins (ADP 49.9) + WR</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: D. Montgomery / Swift (+45 VORP)</div>
+                  </div>
+
+                  {/* Turn 4: 72/73 */}
+                  <div className={`p-1.5 rounded border transition-all ${
+                    currentPick >= 50 && currentPick <= 73
+                      ? 'bg-amber-950/60 border-amber-500/80 text-amber-200 shadow-sm ring-1 ring-amber-500/40'
+                      : 'bg-slate-950/40 border-slate-800/80 text-slate-300'
+                  }`}>
+                    <div className="flex items-center justify-between font-bold">
+                      <span className="text-cyan-400">#72 / #73</span>
+                      <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">🎯 BROWNS TE</span>
+                    </div>
+                    <div className="truncate text-amber-200 font-bold">A: H. Fannin Jr (ADP 71.3) + WR</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: Tucker Kraft / Kyle Pitts / Kittle</div>
+                  </div>
+
+                  {/* Turn 5: 96/97 */}
+                  <div className={`p-1.5 rounded border transition-all ${
+                    currentPick >= 74 && currentPick <= 97
+                      ? 'bg-emerald-950/60 border-emerald-500/70 text-emerald-200 shadow-sm ring-1 ring-emerald-500/30'
+                      : 'bg-slate-950/40 border-slate-800/80 text-slate-300'
+                  }`}>
+                    <div className="flex items-center justify-between font-bold">
+                      <span className="text-cyan-400">#96 / #97</span>
+                      <span className="text-[10px] text-cyan-300">QB1 / WR DEPTH</span>
+                    </div>
+                    <div className="truncate text-slate-200">A: J. Daniels / Nix + WR Ceiling</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: Stafford / Purdy + RB Handcuff</div>
+                  </div>
+
+                  {/* Turn 6: 120/121 */}
+                  <div className={`p-1.5 rounded border transition-all ${
+                    currentPick >= 98 && currentPick <= 121
+                      ? 'bg-amber-950/60 border-amber-500/80 text-amber-200 shadow-sm ring-1 ring-amber-500/40'
+                      : 'bg-slate-950/40 border-slate-800/80 text-slate-300'
+                  }`}>
+                    <div className="flex items-center justify-between font-bold">
+                      <span className="text-cyan-400">#120 / #121</span>
+                      <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">🎯 BROWNS WR</span>
+                    </div>
+                    <div className="truncate text-amber-200 font-bold">A: KC Concepcion (ADP 111) + RB</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: Jayden Reed (+32 VORP!) / Downs</div>
+                  </div>
+
+                  {/* Turn 7: 144/145 */}
+                  <div className={`p-1.5 rounded border transition-all ${
+                    currentPick >= 122 && currentPick <= 145
+                      ? 'bg-emerald-950/60 border-emerald-500/70 text-emerald-200 shadow-sm ring-1 ring-emerald-500/30'
+                      : 'bg-slate-950/40 border-slate-800/80 text-slate-300'
+                  }`}>
+                    <div className="flex items-center justify-between font-bold">
+                      <span className="text-cyan-400">#144 / #145</span>
+                      <span className="text-[10px] text-emerald-400">D/ST + KICKER</span>
+                    </div>
+                    <div className="truncate text-slate-200">A: Top D/ST (BAL/SF/CLE) + K (Tucker/Aubrey)</div>
+                  </div>
+
+                  {/* Turn 8: 168/169 */}
+                  <div className={`p-1.5 rounded border transition-all ${
+                    currentPick >= 146
+                      ? 'bg-amber-950/60 border-amber-500/80 text-amber-200 shadow-sm ring-1 ring-amber-500/40'
+                      : 'bg-slate-950/40 border-slate-800/80 text-slate-300'
+                  }`}>
+                    <div className="flex items-center justify-between font-bold">
+                      <span className="text-cyan-400">#168 / #169</span>
+                      <span className="text-[10px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">🎯 SLEEPER</span>
+                    </div>
+                    <div className="truncate text-amber-200 font-bold">A: Denzel Boston (ADP 171) + Flier</div>
+                    <div className="text-[10px] text-slate-400 truncate">B: Backup RB Handcuff / Upside WR</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Card Quick Tip */}
+              <div className="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                <span className="text-cyan-300 font-semibold flex items-center gap-1">
+                  <Shield className="w-3.5 h-3.5 text-cyan-400" />
+                  Double-Tap Turns (22-pick gaps)
+                </span>
+                <span className="text-[10px] text-slate-500 font-mono">
+                  Pick #{currentPick}
+                </span>
+              </div>
+            </div>
           </div>
         </section>
 
