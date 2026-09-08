@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card-bg: #0c0c0c;
+  --card-border: #1f2923;
+  --primary: #22c55e;
+  --accent: #4ade80;
+}
+
+html, body {
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Pitch Black Panels with Crisp Green Borders */
+.glass-panel {
+  background: #0b0b0b;
+  border: 1px solid rgba(34, 197, 94, 0.22);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.95);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(34, 197, 94, 0.45);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 1), 0 0 12px rgba(34, 197, 94, 0.1);
+}
+
+.glass-panel-subtle {
+  background: #111111;
+  border: 1px solid rgba(34, 197, 94, 0.16);
+  border-radius: 0.75rem;
+}
+
+/* Custom Tactical Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 197, 94, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 197, 94, 0.7);
+}

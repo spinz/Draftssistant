@@ -1,0 +1,45 @@
+# ==============================================
+# Security: Private League Credentials & Tokens
+# ==============================================
+src/data/espn_config.json
+espn_config.json
+*.local
+.env
+.env.*
+!.env.example
+
+# ==============================================
+# Dependencies
+# ==============================================
+node_modules/
+/.pnp
+.pnp.js
+
+# ==============================================
+# Production Build & Next.js Caches
+# ==============================================
+.next/
+out/
+build/
+dist/
+
+# ==============================================
+# Logs & Debug
+# ==============================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==============================================
+# System & Editor Artifacts
+# ==============================================
+.DS_Store
+Thumbs.db
+*.pem
+.idea/
+.vscode/
+*.swp
+*.swo
