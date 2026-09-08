@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node tests/espn_dst_fixture.test.mjs"
+    "test": "node tests/espn_dst_fixture.test.mjs",
+    "analyze-history": "python3 scripts/analyze_espn_history.py"
   },
   "dependencies": {
     "clsx": "^2.1.1",

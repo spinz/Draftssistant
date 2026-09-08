@@ -1,0 +1,2155 @@
+{
+  "generated_at": "2026-09-08",
+  "league_id": "456615",
+  "seasons_analyzed": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "total_seasons": 10,
+  "managers": [
+    {
+      "manager_name": "Shawn Clish",
+      "current_team_name": "F Carson",
+      "current_team_id": 1,
+      "owner_swids": [
+        "{FD28A117-1510-458B-9739-94BDD54BAD2F}"
+      ],
+      "usable_drafts": 10,
+      "seasons_drafted": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "High",
+      "draft_label": "balanced-value",
+      "persona_rationale": "Adaptable value drafter (2.5 RBs / 2.4 WRs in R1-6, QB avg Rd 5.9).",
+      "first_pick_stats": {
+        "QB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 6,
+          "median_round": 6.0,
+          "weighted_avg_round": 5.9,
+          "avg_pick": 63.4,
+          "median_pick": 63.0,
+          "weighted_avg_pick": 63.2,
+          "earliest_round": 4,
+          "latest_round": 9
+        },
+        "RB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 2,
+          "median_round": 1.5,
+          "weighted_avg_round": 2.1,
+          "avg_pick": 16.6,
+          "median_pick": 9.5,
+          "weighted_avg_pick": 17.2,
+          "earliest_round": 1,
+          "latest_round": 5
+        },
+        "WR": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 1.8,
+          "median_round": 1.5,
+          "weighted_avg_round": 1.66,
+          "avg_pick": 16.6,
+          "median_pick": 14.0,
+          "weighted_avg_pick": 15.9,
+          "earliest_round": 1,
+          "latest_round": 3
+        },
+        "TE": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 7.1,
+          "median_round": 7.0,
+          "weighted_avg_round": 6.97,
+          "avg_pick": 76.9,
+          "median_pick": 79.0,
+          "weighted_avg_pick": 76.1,
+          "earliest_round": 2,
+          "latest_round": 11
+        },
+        "K": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 13.8,
+          "median_round": 14.0,
+          "weighted_avg_round": 13.86,
+          "avg_pick": 155,
+          "median_pick": 159.0,
+          "weighted_avg_pick": 156.2,
+          "earliest_round": 12,
+          "latest_round": 15
+        },
+        "DEF": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 10.5,
+          "median_round": 10.0,
+          "weighted_avg_round": 10.55,
+          "avg_pick": 116.9,
+          "median_pick": 115.5,
+          "weighted_avg_pick": 119.8,
+          "earliest_round": 9,
+          "latest_round": 12
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 2,
+          "total": 10,
+          "pct": 20.0
+        },
+        "early_te": {
+          "count": 2,
+          "total": 10,
+          "pct": 20.0
+        },
+        "early_k": {
+          "count": 0,
+          "total": 10,
+          "pct": 0.0
+        },
+        "early_dst": {
+          "count": 7,
+          "total": 10,
+          "pct": 70.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.5,
+        "rb_weighted_avg": 2.45,
+        "wr_avg": 2.4,
+        "wr_weighted_avg": 2.28,
+        "first_round_openers": {
+          "RB": "5/10 (50.0%)",
+          "WR": "5/10 (50.0%)",
+          "TE": "0/10 (0.0%)",
+          "QB": "0/10 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 22.28,
+        "avg_reach_r1_6": 33.25,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "RB": 4,
+          "TE": 2,
+          "WR": 1,
+          "QB": 2
+        },
+        "runs_joined": {
+          "RB": 15,
+          "WR": 11,
+          "QB": 3,
+          "TE": 1
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "DEN",
+          "picks": 12,
+          "pct": 8.7,
+          "drafts_with_multiples": 3
+        },
+        {
+          "team": "GB",
+          "picks": 10,
+          "pct": 7.2,
+          "drafts_with_multiples": 3
+        }
+      ],
+      "loyal_players": [
+        {
+          "player": "BAL D/ST",
+          "times_drafted": 3,
+          "seasons": [
+            2018,
+            2019,
+            2023
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Brittney Cathcart",
+      "current_team_name": "Hingle  McCringleberry",
+      "current_team_id": 2,
+      "owner_swids": [
+        "{15EEB24E-C590-4322-AEB2-4EC5900322D9}"
+      ],
+      "usable_drafts": 10,
+      "seasons_drafted": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "High",
+      "draft_label": "balanced-value",
+      "persona_rationale": "Adaptable value drafter (2.5 RBs / 2.3 WRs in R1-6, QB avg Rd 6.24).",
+      "first_pick_stats": {
+        "QB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 6.2,
+          "median_round": 6.5,
+          "weighted_avg_round": 6.24,
+          "avg_pick": 64.7,
+          "median_pick": 68.0,
+          "weighted_avg_pick": 66.9,
+          "earliest_round": 2,
+          "latest_round": 9
+        },
+        "RB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 1.5,
+          "median_round": 1.0,
+          "weighted_avg_round": 1.45,
+          "avg_pick": 12.4,
+          "median_pick": 10.0,
+          "weighted_avg_pick": 11.4,
+          "earliest_round": 1,
+          "latest_round": 3
+        },
+        "WR": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 1.8,
+          "median_round": 2.0,
+          "weighted_avg_round": 1.76,
+          "avg_pick": 16.9,
+          "median_pick": 17.0,
+          "weighted_avg_pick": 16.5,
+          "earliest_round": 1,
+          "latest_round": 3
+        },
+        "TE": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 5.8,
+          "median_round": 6.0,
+          "weighted_avg_round": 5.55,
+          "avg_pick": 60.9,
+          "median_pick": 62.5,
+          "weighted_avg_pick": 58.0,
+          "earliest_round": 3,
+          "latest_round": 7
+        },
+        "K": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 13.6,
+          "median_round": 14.0,
+          "weighted_avg_round": 13.52,
+          "avg_pick": 153.1,
+          "median_pick": 156.0,
+          "weighted_avg_pick": 153.8,
+          "earliest_round": 12,
+          "latest_round": 14
+        },
+        "DEF": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 12.6,
+          "median_round": 13.0,
+          "weighted_avg_round": 12.41,
+          "avg_pick": 141.1,
+          "median_pick": 138.5,
+          "weighted_avg_pick": 141.2,
+          "earliest_round": 10,
+          "latest_round": 15
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 2,
+          "total": 10,
+          "pct": 20.0
+        },
+        "early_te": {
+          "count": 1,
+          "total": 10,
+          "pct": 10.0
+        },
+        "early_k": {
+          "count": 0,
+          "total": 10,
+          "pct": 0.0
+        },
+        "early_dst": {
+          "count": 2,
+          "total": 10,
+          "pct": 20.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.5,
+        "rb_weighted_avg": 2.45,
+        "wr_avg": 2.3,
+        "wr_weighted_avg": 2.21,
+        "first_round_openers": {
+          "RB": "6/10 (60.0%)",
+          "WR": "4/10 (40.0%)",
+          "TE": "0/10 (0.0%)",
+          "QB": "0/10 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 26.24,
+        "avg_reach_r1_6": 32.56,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "RB": 5,
+          "WR": 9,
+          "QB": 1,
+          "TE": 1
+        },
+        "runs_joined": {
+          "RB": 16,
+          "WR": 8,
+          "TE": 1,
+          "QB": 1
+        }
+      },
+      "unusual_team_affinities": [],
+      "loyal_players": [
+        {
+          "player": "Stefon Diggs",
+          "times_drafted": 4,
+          "seasons": [
+            2016,
+            2017,
+            2018,
+            2022
+          ]
+        },
+        {
+          "player": "Christian McCaffrey",
+          "times_drafted": 3,
+          "seasons": [
+            2019,
+            2020,
+            2024
+          ]
+        },
+        {
+          "player": "LAR D/ST",
+          "times_drafted": 3,
+          "seasons": [
+            2016,
+            2017,
+            2022
+          ]
+        },
+        {
+          "player": "Melvin Gordon",
+          "times_drafted": 3,
+          "seasons": [
+            2016,
+            2017,
+            2018
+          ]
+        },
+        {
+          "player": "Mike Williams",
+          "times_drafted": 3,
+          "seasons": [
+            2022,
+            2023,
+            2024
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Daniel Steinfeld",
+      "current_team_name": "Team takemykids",
+      "current_team_id": 4,
+      "owner_swids": [
+        "{C911C9BF-A235-48F5-91C9-BFA23598F522}",
+        "{9A0CF7EF-24A2-40B6-8CF7-EF24A2A0B614}"
+      ],
+      "usable_drafts": 10,
+      "seasons_drafted": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "High",
+      "draft_label": "early-TE",
+      "persona_rationale": "Prioritizes elite TE early (5/10 drafts in R1-4, avg Rd 6.55).",
+      "first_pick_stats": {
+        "QB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 6.4,
+          "median_round": 6.5,
+          "weighted_avg_round": 5.76,
+          "avg_pick": 69,
+          "median_pick": 70.5,
+          "weighted_avg_pick": 61.3,
+          "earliest_round": 3,
+          "latest_round": 11
+        },
+        "RB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 1.7,
+          "median_round": 1.0,
+          "weighted_avg_round": 1.79,
+          "avg_pick": 14.3,
+          "median_pick": 6.5,
+          "weighted_avg_pick": 15.9,
+          "earliest_round": 1,
+          "latest_round": 4
+        },
+        "WR": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 2.4,
+          "median_round": 2.5,
+          "weighted_avg_round": 2.38,
+          "avg_pick": 24.2,
+          "median_pick": 25.0,
+          "weighted_avg_pick": 23.4,
+          "earliest_round": 1,
+          "latest_round": 4
+        },
+        "TE": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 6.2,
+          "median_round": 5.0,
+          "weighted_avg_round": 6.55,
+          "avg_pick": 64.6,
+          "median_pick": 58.0,
+          "weighted_avg_pick": 70.2,
+          "earliest_round": 2,
+          "latest_round": 12
+        },
+        "K": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 14.1,
+          "median_round": 14.0,
+          "weighted_avg_round": 14.07,
+          "avg_pick": 157.7,
+          "median_pick": 163.0,
+          "weighted_avg_pick": 159.2,
+          "earliest_round": 14,
+          "latest_round": 15
+        },
+        "DEF": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 12.7,
+          "median_round": 13.0,
+          "weighted_avg_round": 12.38,
+          "avg_pick": 141.9,
+          "median_pick": 146.0,
+          "weighted_avg_pick": 138.9,
+          "earliest_round": 10,
+          "latest_round": 14
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 3,
+          "total": 10,
+          "pct": 30.0
+        },
+        "early_te": {
+          "count": 5,
+          "total": 10,
+          "pct": 50.0
+        },
+        "early_k": {
+          "count": 0,
+          "total": 10,
+          "pct": 0.0
+        },
+        "early_dst": {
+          "count": 1,
+          "total": 10,
+          "pct": 10.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.1,
+        "rb_weighted_avg": 1.86,
+        "wr_avg": 2.8,
+        "wr_weighted_avg": 2.97,
+        "first_round_openers": {
+          "RB": "7/10 (70.0%)",
+          "WR": "3/10 (30.0%)",
+          "TE": "0/10 (0.0%)",
+          "QB": "0/10 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 15.97,
+        "avg_reach_r1_6": 23.74,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "RB": 5,
+          "QB": 1,
+          "WR": 5,
+          "TE": 1
+        },
+        "runs_joined": {
+          "RB": 12,
+          "WR": 12,
+          "QB": 4
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "PHI",
+          "picks": 9,
+          "pct": 6.5,
+          "drafts_with_multiples": 2
+        },
+        {
+          "team": "MIA",
+          "picks": 8,
+          "pct": 5.8,
+          "drafts_with_multiples": 2
+        },
+        {
+          "team": "MIN",
+          "picks": 7,
+          "pct": 5.0,
+          "drafts_with_multiples": 2
+        }
+      ],
+      "loyal_players": [
+        {
+          "player": "Davante Adams",
+          "times_drafted": 3,
+          "seasons": [
+            2019,
+            2023,
+            2024
+          ]
+        },
+        {
+          "player": "PHI D/ST",
+          "times_drafted": 3,
+          "seasons": [
+            2019,
+            2023,
+            2025
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Lanny  Federman",
+      "current_team_name": "Lone Rangers",
+      "current_team_id": 5,
+      "owner_swids": [
+        "{A305FFB8-B35C-4E3C-85FF-B8B35CBE3CF9}"
+      ],
+      "usable_drafts": 6,
+      "seasons_drafted": [
+        2019,
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "Moderate-High",
+      "draft_label": "early-QB",
+      "persona_rationale": "Drafted QB in R1-4 in 3/6 drafts (50.0%), weighted avg pick Rd 3.86.",
+      "first_pick_stats": {
+        "QB": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 4.5,
+          "median_round": 4.0,
+          "weighted_avg_round": 3.86,
+          "avg_pick": 41.7,
+          "median_pick": 35.0,
+          "weighted_avg_pick": 35.2,
+          "earliest_round": 3,
+          "latest_round": 8
+        },
+        "RB": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 1.17,
+          "median_round": 1.0,
+          "weighted_avg_round": 1.24,
+          "avg_pick": 7.3,
+          "median_pick": 4.5,
+          "weighted_avg_pick": 8.6,
+          "earliest_round": 1,
+          "latest_round": 2
+        },
+        "WR": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 2.83,
+          "median_round": 3.0,
+          "weighted_avg_round": 2.9,
+          "avg_pick": 26.3,
+          "median_pick": 25.5,
+          "weighted_avg_pick": 28.2,
+          "earliest_round": 1,
+          "latest_round": 4
+        },
+        "TE": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 7.17,
+          "median_round": 7.0,
+          "weighted_avg_round": 6.52,
+          "avg_pick": 73.7,
+          "median_pick": 70.5,
+          "weighted_avg_pick": 67.2,
+          "earliest_round": 5,
+          "latest_round": 10
+        },
+        "K": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 11.5,
+          "median_round": 12.0,
+          "weighted_avg_round": 11.57,
+          "avg_pick": 125.7,
+          "median_pick": 117.5,
+          "weighted_avg_pick": 129.5,
+          "earliest_round": 9,
+          "latest_round": 14
+        },
+        "DEF": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 12,
+          "median_round": 12.0,
+          "weighted_avg_round": 11.86,
+          "avg_pick": 128.8,
+          "median_pick": 122.5,
+          "weighted_avg_pick": 129.6,
+          "earliest_round": 10,
+          "latest_round": 14
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 3,
+          "total": 6,
+          "pct": 50.0
+        },
+        "early_te": {
+          "count": 0,
+          "total": 6,
+          "pct": 0.0
+        },
+        "early_k": {
+          "count": 2,
+          "total": 6,
+          "pct": 33.3
+        },
+        "early_dst": {
+          "count": 3,
+          "total": 6,
+          "pct": 50.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.17,
+        "rb_weighted_avg": 1.95,
+        "wr_avg": 2.67,
+        "wr_weighted_avg": 2.67,
+        "first_round_openers": {
+          "RB": "5/6 (83.3%)",
+          "WR": "1/6 (16.7%)",
+          "TE": "0/6 (0.0%)",
+          "QB": "0/6 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 37.67,
+        "avg_reach_r1_6": 55.46,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "RB": 1,
+          "WR": 2
+        },
+        "runs_joined": {
+          "RB": 7,
+          "WR": 13,
+          "TE": 1,
+          "QB": 1
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "DAL",
+          "picks": 6,
+          "pct": 7.2,
+          "drafts_with_multiples": 2
+        }
+      ],
+      "loyal_players": []
+    },
+    {
+      "manager_name": "Robbie Share",
+      "current_team_name": "Dawg Pound",
+      "current_team_id": 6,
+      "owner_swids": [
+        "{401C86DA-2D7A-4797-9C86-DA2D7A17976C}"
+      ],
+      "usable_drafts": 10,
+      "seasons_drafted": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "High",
+      "draft_label": "early-QB",
+      "persona_rationale": "Drafted QB in R1-4 in 7/10 drafts (70.0%), weighted avg pick Rd 4.38.",
+      "first_pick_stats": {
+        "QB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 4.1,
+          "median_round": 4.0,
+          "weighted_avg_round": 4.38,
+          "avg_pick": 43.3,
+          "median_pick": 39.0,
+          "weighted_avg_pick": 46.5,
+          "earliest_round": 3,
+          "latest_round": 6
+        },
+        "RB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 1.5,
+          "median_round": 1.5,
+          "weighted_avg_round": 1.55,
+          "avg_pick": 11.9,
+          "median_pick": 11.5,
+          "weighted_avg_pick": 12.7,
+          "earliest_round": 1,
+          "latest_round": 2
+        },
+        "WR": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 1.8,
+          "median_round": 1.5,
+          "weighted_avg_round": 1.76,
+          "avg_pick": 13.6,
+          "median_pick": 12.5,
+          "weighted_avg_pick": 13.0,
+          "earliest_round": 1,
+          "latest_round": 3
+        },
+        "TE": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 5.9,
+          "median_round": 6.0,
+          "weighted_avg_round": 5.52,
+          "avg_pick": 62.5,
+          "median_pick": 62.0,
+          "weighted_avg_pick": 59.7,
+          "earliest_round": 4,
+          "latest_round": 8
+        },
+        "K": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 10,
+          "median_round": 10.0,
+          "weighted_avg_round": 10.1,
+          "avg_pick": 111,
+          "median_pick": 110.0,
+          "weighted_avg_pick": 113.1,
+          "earliest_round": 8,
+          "latest_round": 13
+        },
+        "DEF": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 9.9,
+          "median_round": 10.0,
+          "weighted_avg_round": 9.83,
+          "avg_pick": 109.9,
+          "median_pick": 108.5,
+          "weighted_avg_pick": 111.3,
+          "earliest_round": 8,
+          "latest_round": 12
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 7,
+          "total": 10,
+          "pct": 70.0
+        },
+        "early_te": {
+          "count": 2,
+          "total": 10,
+          "pct": 20.0
+        },
+        "early_k": {
+          "count": 9,
+          "total": 10,
+          "pct": 90.0
+        },
+        "early_dst": {
+          "count": 9,
+          "total": 10,
+          "pct": 90.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.1,
+        "rb_weighted_avg": 2.07,
+        "wr_avg": 2.1,
+        "wr_weighted_avg": 2.07,
+        "first_round_openers": {
+          "RB": "5/10 (50.0%)",
+          "WR": "5/10 (50.0%)",
+          "TE": "0/10 (0.0%)",
+          "QB": "0/10 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 23.47,
+        "avg_reach_r1_6": 32.23,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "WR": 4,
+          "RB": 7,
+          "TE": 2,
+          "QB": 1
+        },
+        "runs_joined": {
+          "RB": 8,
+          "WR": 9,
+          "TE": 1,
+          "QB": 1
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "CLE",
+          "picks": 21,
+          "pct": 15.2,
+          "drafts_with_multiples": 7
+        },
+        {
+          "team": "NO",
+          "picks": 15,
+          "pct": 10.9,
+          "drafts_with_multiples": 4
+        }
+      ],
+      "loyal_players": [
+        {
+          "player": "Drew Brees",
+          "times_drafted": 5,
+          "seasons": [
+            2015,
+            2016,
+            2017,
+            2018,
+            2020
+          ]
+        },
+        {
+          "player": "Derek Carr",
+          "times_drafted": 3,
+          "seasons": [
+            2017,
+            2019,
+            2023
+          ]
+        },
+        {
+          "player": "Jarvis Landry",
+          "times_drafted": 3,
+          "seasons": [
+            2019,
+            2020,
+            2022
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Chris Cringel / Christina Cicko",
+      "current_team_name": "Team Slavic Ours",
+      "current_team_id": 7,
+      "owner_swids": [
+        "{763CCEC6-278F-4FF4-BCCE-C6278F6FF4ED}",
+        "{0979C986-5B1B-4273-BDFE-A8746040FF7A}"
+      ],
+      "usable_drafts": 10,
+      "seasons_drafted": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "High",
+      "draft_label": "early-QB",
+      "persona_rationale": "Drafted QB in R1-4 in 8/10 drafts (80.0%), weighted avg pick Rd 2.59.",
+      "first_pick_stats": {
+        "QB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 2.7,
+          "median_round": 2.0,
+          "weighted_avg_round": 2.59,
+          "avg_pick": 26.8,
+          "median_pick": 18.0,
+          "weighted_avg_pick": 25.1,
+          "earliest_round": 1,
+          "latest_round": 9
+        },
+        "RB": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 3.5,
+          "median_round": 3.5,
+          "weighted_avg_round": 3.34,
+          "avg_pick": 36.2,
+          "median_pick": 36.0,
+          "weighted_avg_pick": 34.9,
+          "earliest_round": 1,
+          "latest_round": 7
+        },
+        "WR": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 2.2,
+          "median_round": 1.5,
+          "weighted_avg_round": 1.83,
+          "avg_pick": 20.3,
+          "median_pick": 12.0,
+          "weighted_avg_pick": 15.9,
+          "earliest_round": 1,
+          "latest_round": 5
+        },
+        "TE": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 4.8,
+          "median_round": 3.0,
+          "weighted_avg_round": 4.55,
+          "avg_pick": 51.5,
+          "median_pick": 29.5,
+          "weighted_avg_pick": 48.2,
+          "earliest_round": 2,
+          "latest_round": 13
+        },
+        "K": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 9,
+          "median_round": 8.5,
+          "weighted_avg_round": 9.31,
+          "avg_pick": 100.9,
+          "median_pick": 91.0,
+          "weighted_avg_pick": 105.3,
+          "earliest_round": 5,
+          "latest_round": 13
+        },
+        "DEF": {
+          "count": 10,
+          "total_drafts": 10,
+          "avg_round": 9.9,
+          "median_round": 9.5,
+          "weighted_avg_round": 9.41,
+          "avg_pick": 107.4,
+          "median_pick": 102.0,
+          "weighted_avg_pick": 103.2,
+          "earliest_round": 5,
+          "latest_round": 14
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 8,
+          "total": 10,
+          "pct": 80.0
+        },
+        "early_te": {
+          "count": 7,
+          "total": 10,
+          "pct": 70.0
+        },
+        "early_k": {
+          "count": 7,
+          "total": 10,
+          "pct": 70.0
+        },
+        "early_dst": {
+          "count": 7,
+          "total": 10,
+          "pct": 70.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 1.6,
+        "rb_weighted_avg": 1.72,
+        "wr_avg": 2.1,
+        "wr_weighted_avg": 2.07,
+        "first_round_openers": {
+          "RB": "1/10 (10.0%)",
+          "WR": "5/10 (50.0%)",
+          "TE": "0/10 (0.0%)",
+          "QB": "4/10 (40.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 25.3,
+        "avg_reach_r1_6": 38.13,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "RB": 7,
+          "WR": 3
+        },
+        "runs_joined": {
+          "WR": 14,
+          "RB": 6,
+          "QB": 1
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "NE",
+          "picks": 15,
+          "pct": 10.6,
+          "drafts_with_multiples": 4
+        },
+        {
+          "team": "GB",
+          "picks": 14,
+          "pct": 9.9,
+          "drafts_with_multiples": 4
+        },
+        {
+          "team": "NYJ",
+          "picks": 8,
+          "pct": 5.7,
+          "drafts_with_multiples": 2
+        }
+      ],
+      "loyal_players": [
+        {
+          "player": "Aaron Rodgers",
+          "times_drafted": 4,
+          "seasons": [
+            2015,
+            2016,
+            2018,
+            2019
+          ]
+        },
+        {
+          "player": "Julian Edelman",
+          "times_drafted": 3,
+          "seasons": [
+            2015,
+            2016,
+            2020
+          ]
+        },
+        {
+          "player": "Stephen Gostkowski",
+          "times_drafted": 3,
+          "seasons": [
+            2015,
+            2016,
+            2018
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Heather Kelly",
+      "current_team_name": " Ladies+ Edelman",
+      "current_team_id": 8,
+      "owner_swids": [
+        "{07B071B3-FC9E-4256-B071-B3FC9E32563C}"
+      ],
+      "usable_drafts": 5,
+      "seasons_drafted": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "Moderate-High",
+      "draft_label": "early-QB",
+      "persona_rationale": "Drafted QB in R1-4 in 4/5 drafts (80.0%), weighted avg pick Rd 3.63.",
+      "first_pick_stats": {
+        "QB": {
+          "count": 5,
+          "total_drafts": 5,
+          "avg_round": 3.6,
+          "median_round": 4,
+          "weighted_avg_round": 3.63,
+          "avg_pick": 37,
+          "median_pick": 40,
+          "weighted_avg_pick": 37.6,
+          "earliest_round": 2,
+          "latest_round": 5
+        },
+        "RB": {
+          "count": 5,
+          "total_drafts": 5,
+          "avg_round": 1.4,
+          "median_round": 1,
+          "weighted_avg_round": 1.53,
+          "avg_pick": 9.2,
+          "median_pick": 4,
+          "weighted_avg_pick": 11.0,
+          "earliest_round": 1,
+          "latest_round": 2
+        },
+        "WR": {
+          "count": 5,
+          "total_drafts": 5,
+          "avg_round": 2.2,
+          "median_round": 2,
+          "weighted_avg_round": 1.79,
+          "avg_pick": 20.4,
+          "median_pick": 22,
+          "weighted_avg_pick": 16.4,
+          "earliest_round": 1,
+          "latest_round": 4
+        },
+        "TE": {
+          "count": 5,
+          "total_drafts": 5,
+          "avg_round": 5.2,
+          "median_round": 5,
+          "weighted_avg_round": 5.26,
+          "avg_pick": 53.4,
+          "median_pick": 53,
+          "weighted_avg_pick": 54.6,
+          "earliest_round": 3,
+          "latest_round": 7
+        },
+        "K": {
+          "count": 5,
+          "total_drafts": 5,
+          "avg_round": 11,
+          "median_round": 11,
+          "weighted_avg_round": 10.84,
+          "avg_pick": 122,
+          "median_pick": 123,
+          "weighted_avg_pick": 122.3,
+          "earliest_round": 9,
+          "latest_round": 12
+        },
+        "DEF": {
+          "count": 5,
+          "total_drafts": 5,
+          "avg_round": 9.4,
+          "median_round": 9,
+          "weighted_avg_round": 9.84,
+          "avg_pick": 103.6,
+          "median_pick": 100,
+          "weighted_avg_pick": 110.6,
+          "earliest_round": 7,
+          "latest_round": 13
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 4,
+          "total": 5,
+          "pct": 80.0
+        },
+        "early_te": {
+          "count": 1,
+          "total": 5,
+          "pct": 20.0
+        },
+        "early_k": {
+          "count": 3,
+          "total": 5,
+          "pct": 60.0
+        },
+        "early_dst": {
+          "count": 4,
+          "total": 5,
+          "pct": 80.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2,
+        "rb_weighted_avg": 2.0,
+        "wr_avg": 2.2,
+        "wr_weighted_avg": 2.11,
+        "first_round_openers": {
+          "RB": "3/5 (60.0%)",
+          "WR": "2/5 (40.0%)",
+          "TE": "0/5 (0.0%)",
+          "QB": "0/5 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 37.81,
+        "avg_reach_r1_6": 52.77,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "WR": 8,
+          "TE": 1,
+          "RB": 1
+        },
+        "runs_joined": {
+          "RB": 4,
+          "QB": 2,
+          "WR": 5,
+          "TE": 3
+        }
+      },
+      "unusual_team_affinities": [],
+      "loyal_players": [
+        {
+          "player": "Kyler Murray",
+          "times_drafted": 3,
+          "seasons": [
+            2020,
+            2022,
+            2024
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Josh Peters",
+      "current_team_name": "Kyle Pitts",
+      "current_team_id": 9,
+      "owner_swids": [
+        "{3688D749-C524-440D-A9DE-BBBB5608DDD1}"
+      ],
+      "usable_drafts": 7,
+      "seasons_drafted": [
+        2018,
+        2019,
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "High",
+      "draft_label": "balanced-value",
+      "persona_rationale": "Adaptable value drafter (2.14 RBs / 2.71 WRs in R1-6, QB avg Rd 6.22).",
+      "first_pick_stats": {
+        "QB": {
+          "count": 7,
+          "total_drafts": 7,
+          "avg_round": 6.14,
+          "median_round": 6,
+          "weighted_avg_round": 6.22,
+          "avg_pick": 63.6,
+          "median_pick": 62,
+          "weighted_avg_pick": 66.1,
+          "earliest_round": 4,
+          "latest_round": 8
+        },
+        "RB": {
+          "count": 7,
+          "total_drafts": 7,
+          "avg_round": 1.14,
+          "median_round": 1,
+          "weighted_avg_round": 1.09,
+          "avg_pick": 8.6,
+          "median_pick": 8,
+          "weighted_avg_pick": 8.3,
+          "earliest_round": 1,
+          "latest_round": 2
+        },
+        "WR": {
+          "count": 7,
+          "total_drafts": 7,
+          "avg_round": 2,
+          "median_round": 2,
+          "weighted_avg_round": 2.0,
+          "avg_pick": 17.4,
+          "median_pick": 17,
+          "weighted_avg_pick": 17.3,
+          "earliest_round": 1,
+          "latest_round": 3
+        },
+        "TE": {
+          "count": 7,
+          "total_drafts": 7,
+          "avg_round": 6,
+          "median_round": 6,
+          "weighted_avg_round": 6.39,
+          "avg_pick": 62.3,
+          "median_pick": 63,
+          "weighted_avg_pick": 67.9,
+          "earliest_round": 2,
+          "latest_round": 11
+        },
+        "K": {
+          "count": 7,
+          "total_drafts": 7,
+          "avg_round": 13.29,
+          "median_round": 13,
+          "weighted_avg_round": 13.3,
+          "avg_pick": 146.1,
+          "median_pick": 152,
+          "weighted_avg_pick": 150.1,
+          "earliest_round": 12,
+          "latest_round": 14
+        },
+        "DEF": {
+          "count": 7,
+          "total_drafts": 7,
+          "avg_round": 13.43,
+          "median_round": 13,
+          "weighted_avg_round": 13.52,
+          "avg_pick": 148.6,
+          "median_pick": 151,
+          "weighted_avg_pick": 151.7,
+          "earliest_round": 13,
+          "latest_round": 14
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 1,
+          "total": 7,
+          "pct": 14.3
+        },
+        "early_te": {
+          "count": 3,
+          "total": 7,
+          "pct": 42.9
+        },
+        "early_k": {
+          "count": 0,
+          "total": 7,
+          "pct": 0.0
+        },
+        "early_dst": {
+          "count": 0,
+          "total": 7,
+          "pct": 0.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.14,
+        "rb_weighted_avg": 2.09,
+        "wr_avg": 2.71,
+        "wr_weighted_avg": 2.7,
+        "first_round_openers": {
+          "RB": "6/7 (85.7%)",
+          "WR": "1/7 (14.3%)",
+          "TE": "0/7 (0.0%)",
+          "QB": "0/7 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 36.61,
+        "avg_reach_r1_6": 56.73,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "WR": 3,
+          "RB": 3
+        },
+        "runs_joined": {
+          "WR": 8,
+          "TE": 2,
+          "RB": 12
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "TB",
+          "picks": 6,
+          "pct": 6.2,
+          "drafts_with_multiples": 2
+        },
+        {
+          "team": "KC",
+          "picks": 6,
+          "pct": 6.2,
+          "drafts_with_multiples": 2
+        },
+        {
+          "team": "NO",
+          "picks": 5,
+          "pct": 5.2,
+          "drafts_with_multiples": 2
+        }
+      ],
+      "loyal_players": [
+        {
+          "player": "JuJu Smith-Schuster",
+          "times_drafted": 3,
+          "seasons": [
+            2018,
+            2020,
+            2022
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Phil Usajewicz / Kyle Kelland",
+      "current_team_name": "GIF Master Phil",
+      "current_team_id": 11,
+      "owner_swids": [
+        "{4B80FFE7-B78F-4835-840E-5389881DED4C}",
+        "{FF2845E9-935C-474B-AB42-8119BA8346C7}"
+      ],
+      "usable_drafts": 6,
+      "seasons_drafted": [
+        2019,
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "Moderate-High",
+      "draft_label": "early-QB",
+      "persona_rationale": "Drafted QB in R1-4 in 3/6 drafts (50.0%), weighted avg pick Rd 5.05.",
+      "first_pick_stats": {
+        "QB": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 4.83,
+          "median_round": 4.5,
+          "weighted_avg_round": 5.05,
+          "avg_pick": 51.7,
+          "median_pick": 45.5,
+          "weighted_avg_pick": 54.7,
+          "earliest_round": 2,
+          "latest_round": 8
+        },
+        "RB": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 1.17,
+          "median_round": 1.0,
+          "weighted_avg_round": 1.24,
+          "avg_pick": 8.3,
+          "median_pick": 8.0,
+          "weighted_avg_pick": 9.3,
+          "earliest_round": 1,
+          "latest_round": 2
+        },
+        "WR": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 2.17,
+          "median_round": 2.0,
+          "weighted_avg_round": 1.95,
+          "avg_pick": 18,
+          "median_pick": 17.0,
+          "weighted_avg_pick": 16.4,
+          "earliest_round": 1,
+          "latest_round": 3
+        },
+        "TE": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 5.83,
+          "median_round": 6.0,
+          "weighted_avg_round": 6.05,
+          "avg_pick": 61.3,
+          "median_pick": 60.0,
+          "weighted_avg_pick": 65.2,
+          "earliest_round": 4,
+          "latest_round": 8
+        },
+        "K": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 13.17,
+          "median_round": 13.5,
+          "weighted_avg_round": 13.1,
+          "avg_pick": 144,
+          "median_pick": 146.0,
+          "weighted_avg_pick": 146.7,
+          "earliest_round": 12,
+          "latest_round": 14
+        },
+        "DEF": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 11.33,
+          "median_round": 11.5,
+          "weighted_avg_round": 12.33,
+          "avg_pick": 124.2,
+          "median_pick": 128.0,
+          "weighted_avg_pick": 137.7,
+          "earliest_round": 8,
+          "latest_round": 14
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 3,
+          "total": 6,
+          "pct": 50.0
+        },
+        "early_te": {
+          "count": 2,
+          "total": 6,
+          "pct": 33.3
+        },
+        "early_k": {
+          "count": 0,
+          "total": 6,
+          "pct": 0.0
+        },
+        "early_dst": {
+          "count": 3,
+          "total": 6,
+          "pct": 50.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.17,
+        "rb_weighted_avg": 2.24,
+        "wr_avg": 2.5,
+        "wr_weighted_avg": 2.57,
+        "first_round_openers": {
+          "RB": "5/6 (83.3%)",
+          "WR": "1/6 (16.7%)",
+          "TE": "0/6 (0.0%)",
+          "QB": "0/6 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 39.74,
+        "avg_reach_r1_6": 52.63,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "RB": 7,
+          "WR": 2
+        },
+        "runs_joined": {
+          "RB": 7,
+          "TE": 3,
+          "WR": 8
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "LAC",
+          "picks": 7,
+          "pct": 8.4,
+          "drafts_with_multiples": 2
+        }
+      ],
+      "loyal_players": [
+        {
+          "player": "Hunter Henry",
+          "times_drafted": 3,
+          "seasons": [
+            2019,
+            2020,
+            2022
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Brandon Carson",
+      "current_team_name": " Chalupa Batman",
+      "current_team_id": 12,
+      "owner_swids": [
+        "{79B7D00A-F4F2-4ECA-A005-C4F8E513C3B5}",
+        "{E56E5015-B7CA-4305-95D2-01586A5F11F8}"
+      ],
+      "usable_drafts": 6,
+      "seasons_drafted": [
+        2017,
+        2018,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "Moderate-High",
+      "draft_label": "early-QB",
+      "persona_rationale": "Drafted QB in R1-4 in 5/6 drafts (83.3%), weighted avg pick Rd 2.95.",
+      "first_pick_stats": {
+        "QB": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 3.67,
+          "median_round": 3.5,
+          "weighted_avg_round": 2.95,
+          "avg_pick": 40.8,
+          "median_pick": 38.5,
+          "weighted_avg_pick": 32.8,
+          "earliest_round": 1,
+          "latest_round": 8
+        },
+        "RB": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 2.33,
+          "median_round": 2.5,
+          "weighted_avg_round": 2.48,
+          "avg_pick": 21.5,
+          "median_pick": 22.0,
+          "weighted_avg_pick": 23.7,
+          "earliest_round": 1,
+          "latest_round": 4
+        },
+        "WR": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 1.5,
+          "median_round": 1.5,
+          "weighted_avg_round": 1.43,
+          "avg_pick": 13,
+          "median_pick": 11.5,
+          "weighted_avg_pick": 11.4,
+          "earliest_round": 1,
+          "latest_round": 2
+        },
+        "TE": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 6.83,
+          "median_round": 6.5,
+          "weighted_avg_round": 6.76,
+          "avg_pick": 76,
+          "median_pick": 70.5,
+          "weighted_avg_pick": 75.4,
+          "earliest_round": 5,
+          "latest_round": 9
+        },
+        "K": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 9.5,
+          "median_round": 9.0,
+          "weighted_avg_round": 9.43,
+          "avg_pick": 107.7,
+          "median_pick": 101.0,
+          "weighted_avg_pick": 107.2,
+          "earliest_round": 7,
+          "latest_round": 14
+        },
+        "DEF": {
+          "count": 6,
+          "total_drafts": 6,
+          "avg_round": 12.83,
+          "median_round": 13.5,
+          "weighted_avg_round": 13.19,
+          "avg_pick": 149.7,
+          "median_pick": 157.5,
+          "weighted_avg_pick": 154.0,
+          "earliest_round": 10,
+          "latest_round": 14
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 5,
+          "total": 6,
+          "pct": 83.3
+        },
+        "early_te": {
+          "count": 0,
+          "total": 6,
+          "pct": 0.0
+        },
+        "early_k": {
+          "count": 5,
+          "total": 6,
+          "pct": 83.3
+        },
+        "early_dst": {
+          "count": 1,
+          "total": 6,
+          "pct": 16.7
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2,
+        "rb_weighted_avg": 2.0,
+        "wr_avg": 2.67,
+        "wr_weighted_avg": 2.52,
+        "first_round_openers": {
+          "RB": "2/6 (33.3%)",
+          "WR": "3/6 (50.0%)",
+          "TE": "0/6 (0.0%)",
+          "QB": "1/6 (16.7%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 23.91,
+        "avg_reach_r1_6": 39.83,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "TE": 1,
+          "WR": 4,
+          "RB": 4
+        },
+        "runs_joined": {
+          "WR": 7,
+          "RB": 3,
+          "QB": 1
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "JAX",
+          "picks": 6,
+          "pct": 7.1,
+          "drafts_with_multiples": 2
+        }
+      ],
+      "loyal_players": []
+    },
+    {
+      "manager_name": "Shael Katz",
+      "current_team_name": "FTR",
+      "current_team_id": 13,
+      "owner_swids": [
+        "{B60E73B0-EC71-45C4-8501-BFE0F5FD79A5}"
+      ],
+      "usable_drafts": 3,
+      "seasons_drafted": [
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "Moderate",
+      "draft_label": "early-QB",
+      "persona_rationale": "Drafted QB in R1-4 in 2/3 drafts (66.7%), weighted avg pick Rd 3.33.",
+      "first_pick_stats": {
+        "QB": {
+          "count": 3,
+          "total_drafts": 3,
+          "avg_round": 3.33,
+          "median_round": 3,
+          "weighted_avg_round": 3.33,
+          "avg_pick": 32.7,
+          "median_pick": 26,
+          "weighted_avg_pick": 32.7,
+          "earliest_round": 2,
+          "latest_round": 5
+        },
+        "RB": {
+          "count": 3,
+          "total_drafts": 3,
+          "avg_round": 3.33,
+          "median_round": 3,
+          "weighted_avg_round": 3.33,
+          "avg_pick": 33.3,
+          "median_pick": 34,
+          "weighted_avg_pick": 33.3,
+          "earliest_round": 2,
+          "latest_round": 5
+        },
+        "WR": {
+          "count": 3,
+          "total_drafts": 3,
+          "avg_round": 1,
+          "median_round": 1,
+          "weighted_avg_round": 1.0,
+          "avg_pick": 7,
+          "median_pick": 9,
+          "weighted_avg_pick": 7.0,
+          "earliest_round": 1,
+          "latest_round": 1
+        },
+        "TE": {
+          "count": 3,
+          "total_drafts": 3,
+          "avg_round": 7,
+          "median_round": 8,
+          "weighted_avg_round": 7.0,
+          "avg_pick": 80.3,
+          "median_pick": 88,
+          "weighted_avg_pick": 80.3,
+          "earliest_round": 4,
+          "latest_round": 9
+        },
+        "K": {
+          "count": 3,
+          "total_drafts": 3,
+          "avg_round": 12.33,
+          "median_round": 12,
+          "weighted_avg_round": 12.33,
+          "avg_pick": 139,
+          "median_pick": 135,
+          "weighted_avg_pick": 139.0,
+          "earliest_round": 11,
+          "latest_round": 14
+        },
+        "DEF": {
+          "count": 3,
+          "total_drafts": 3,
+          "avg_round": 10.67,
+          "median_round": 10,
+          "weighted_avg_round": 10.67,
+          "avg_pick": 122,
+          "median_pick": 119,
+          "weighted_avg_pick": 122.0,
+          "earliest_round": 10,
+          "latest_round": 12
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 2,
+          "total": 3,
+          "pct": 66.7
+        },
+        "early_te": {
+          "count": 1,
+          "total": 3,
+          "pct": 33.3
+        },
+        "early_k": {
+          "count": 1,
+          "total": 3,
+          "pct": 33.3
+        },
+        "early_dst": {
+          "count": 2,
+          "total": 3,
+          "pct": 66.7
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.33,
+        "rb_weighted_avg": 2.33,
+        "wr_avg": 2.33,
+        "wr_weighted_avg": 2.33,
+        "first_round_openers": {
+          "RB": "0/3 (0.0%)",
+          "WR": "3/3 (100.0%)",
+          "TE": "0/3 (0.0%)",
+          "QB": "0/3 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 48.15,
+        "avg_reach_r1_6": 66.81,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "WR": 2
+        },
+        "runs_joined": {
+          "RB": 6,
+          "WR": 5
+        }
+      },
+      "unusual_team_affinities": [
+        {
+          "team": "BAL",
+          "picks": 5,
+          "pct": 12.2,
+          "drafts_with_multiples": 2
+        }
+      ],
+      "loyal_players": [
+        {
+          "player": "Jakobi Meyers",
+          "times_drafted": 2,
+          "seasons": [
+            2023,
+            2025
+          ]
+        }
+      ]
+    },
+    {
+      "manager_name": "Scott kelly / Scott Kelly",
+      "current_team_name": "* KellyKustom *",
+      "current_team_id": 14,
+      "owner_swids": [
+        "{007D34CC-738D-4CFF-BD34-CC738D7CFF18}",
+        "{8A1A5D7C-9E3F-4777-A425-A0711B190ABA}"
+      ],
+      "usable_drafts": 4,
+      "seasons_drafted": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "confidence": "Moderate-High",
+      "draft_label": "early-QB",
+      "persona_rationale": "Drafted QB in R1-4 in 2/4 drafts (50.0%), weighted avg pick Rd 5.24.",
+      "first_pick_stats": {
+        "QB": {
+          "count": 4,
+          "total_drafts": 4,
+          "avg_round": 5.5,
+          "median_round": 5.5,
+          "weighted_avg_round": 5.24,
+          "avg_pick": 59,
+          "median_pick": 59.5,
+          "weighted_avg_pick": 56.2,
+          "earliest_round": 4,
+          "latest_round": 7
+        },
+        "RB": {
+          "count": 4,
+          "total_drafts": 4,
+          "avg_round": 1.5,
+          "median_round": 1.5,
+          "weighted_avg_round": 1.59,
+          "avg_pick": 11,
+          "median_pick": 10.5,
+          "weighted_avg_pick": 12.4,
+          "earliest_round": 1,
+          "latest_round": 2
+        },
+        "WR": {
+          "count": 4,
+          "total_drafts": 4,
+          "avg_round": 2.5,
+          "median_round": 2.5,
+          "weighted_avg_round": 2.59,
+          "avg_pick": 26,
+          "median_pick": 26.5,
+          "weighted_avg_pick": 26.7,
+          "earliest_round": 1,
+          "latest_round": 4
+        },
+        "TE": {
+          "count": 4,
+          "total_drafts": 4,
+          "avg_round": 3.5,
+          "median_round": 4.0,
+          "weighted_avg_round": 3.24,
+          "avg_pick": 34,
+          "median_pick": 38.5,
+          "weighted_avg_pick": 31.0,
+          "earliest_round": 1,
+          "latest_round": 5
+        },
+        "K": {
+          "count": 4,
+          "total_drafts": 4,
+          "avg_round": 10,
+          "median_round": 10.0,
+          "weighted_avg_round": 10.18,
+          "avg_pick": 112,
+          "median_pick": 111.0,
+          "weighted_avg_pick": 114.3,
+          "earliest_round": 9,
+          "latest_round": 11
+        },
+        "DEF": {
+          "count": 4,
+          "total_drafts": 4,
+          "avg_round": 12,
+          "median_round": 13.0,
+          "weighted_avg_round": 11.65,
+          "avg_pick": 141,
+          "median_pick": 152.0,
+          "weighted_avg_pick": 136.6,
+          "earliest_round": 8,
+          "latest_round": 14
+        }
+      },
+      "early_tendencies": {
+        "early_qb": {
+          "count": 2,
+          "total": 4,
+          "pct": 50.0
+        },
+        "early_te": {
+          "count": 2,
+          "total": 4,
+          "pct": 50.0
+        },
+        "early_k": {
+          "count": 4,
+          "total": 4,
+          "pct": 100.0
+        },
+        "early_dst": {
+          "count": 1,
+          "total": 4,
+          "pct": 25.0
+        }
+      },
+      "r1_6_construction": {
+        "rb_avg": 2.5,
+        "rb_weighted_avg": 2.41,
+        "wr_avg": 2,
+        "wr_weighted_avg": 2.0,
+        "first_round_openers": {
+          "RB": "2/4 (50.0%)",
+          "WR": "1/4 (25.0%)",
+          "TE": "1/4 (25.0%)",
+          "QB": "0/4 (0.0%)"
+        }
+      },
+      "adp_profile": {
+        "avg_reach_all_picks": 31.98,
+        "avg_reach_r1_6": 53.44,
+        "interpretation": "Aggressive Reach"
+      },
+      "position_runs": {
+        "runs_started": {
+          "WR": 1,
+          "RB": 1
+        },
+        "runs_joined": {
+          "RB": 5,
+          "QB": 1,
+          "WR": 3,
+          "TE": 1
+        }
+      },
+      "unusual_team_affinities": [],
+      "loyal_players": [
+        {
+          "player": "Chris Godwin",
+          "times_drafted": 2,
+          "seasons": [
+            2022,
+            2023
+          ]
+        },
+        {
+          "player": "Chris Olave",
+          "times_drafted": 2,
+          "seasons": [
+            2022,
+            2024
+          ]
+        },
+        {
+          "player": "George Kittle",
+          "times_drafted": 2,
+          "seasons": [
+            2022,
+            2024
+          ]
+        },
+        {
+          "player": "Jonathan Taylor",
+          "times_drafted": 2,
+          "seasons": [
+            2023,
+            2025
+          ]
+        },
+        {
+          "player": "Justin Tucker",
+          "times_drafted": 2,
+          "seasons": [
+            2022,
+            2024
+          ]
+        },
+        {
+          "player": "Nick Chubb",
+          "times_drafted": 2,
+          "seasons": [
+            2022,
+            2025
+          ]
+        },
+        {
+          "player": "Saquon Barkley",
+          "times_drafted": 2,
+          "seasons": [
+            2024,
+            2025
+          ]
+        },
+        {
+          "player": "Tyreek Hill",
+          "times_drafted": 2,
+          "seasons": [
+            2022,
+            2024
+          ]
+        }
+      ]
+    }
+  ]
+}
