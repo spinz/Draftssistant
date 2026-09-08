@@ -172,7 +172,10 @@ export default function DraftWarRoom() {
       const savedHistory = localStorage.getItem('warroom_history');
       if (savedHistory) {
         const parsed = JSON.parse(savedHistory);
-        if (Array.isArray(parsed)) setDraftHistory(parsed);
+        if (Array.isArray(parsed)) {
+          const sanitized = parsed.filter(p => p && p.player && p.player.id && !p.player.id.includes('-1'));
+          setDraftHistory(sanitized);
+        }
       }
     } catch (e) {
       console.warn('LocalStorage error:', e);
@@ -270,7 +273,7 @@ export default function DraftWarRoom() {
 
         if (data.success && data.draft?.picks) {
           setEspnLastSync(new Date().toLocaleTimeString());
-          const espnPicks = data.draft.picks;
+          const espnPicks = (data.draft.picks as any[]).filter((ep: any) => ep.playerId && Number(ep.playerId) > 0);
 
           // If draft order was just revealed/updated
           if (data.myDraftSlot && data.myDraftSlot !== userSlot) {
@@ -1289,7 +1292,7 @@ export default function DraftWarRoom() {
                   <div className="mt-1 space-y-1">
                     {structuredRoster.bench.map((bp, i) => (
                       <LineupSlot
-                        key={bp.id}
+                        key={`${bp.id}-${i}`}
                         slotName={`BN${i + 1}`}
                         player={bp}
                         scoring={scoring}
