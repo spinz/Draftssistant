@@ -608,11 +608,20 @@ export default function DraftWarRoom() {
         : 30;
 
       if (remainingCount <= 3) {
+        // Pick the top candidate in this tier who isn't already the VORP King
+        const candidate = inThisTier.find(p => p.id !== bestVorp?.id) || availInPos[0];
+        if (candidate.id === bestVorp?.id) continue;
+
+        // Proximity Guard: In early rounds (1-4), don't trigger tier cliffs for players whose ADP
+        // is far beyond the current pick (e.g. Bowers ADP 23 at Pick 1). Reaching 10+ picks in Round 1 is reckless.
+        const maxReach = currentRound <= 3 ? 10 : 16;
+        if (candidate.currentAdp > currentPick + maxReach) continue;
+
         const severity = dropoff * (4 - remainingCount) * (Math.min(pickGap, 22) / 10);
-        if (severity > maxSeverity && availInPos[0].id !== bestVorp?.id) {
+        if (severity > maxSeverity) {
           maxSeverity = severity;
           topCliffCandidate = {
-            player: availInPos[0],
+            player: candidate,
             dropoff,
             remainingInTier: remainingCount,
             tier: currentTier,
@@ -634,17 +643,21 @@ export default function DraftWarRoom() {
         color: 'amber'
       });
     } else {
+      const maxReach = currentRound <= 3 ? 12 : 20;
       const valueSteal = [...validPool]
-        .filter(p => p.id !== bestVorp?.id)
+        .filter(p => p.id !== bestVorp?.id && p.currentAdp <= currentPick + maxReach)
         .sort((a, b) => b.adpValueDiff - a.adpValueDiff)[0];
 
       if (valueSteal) {
+        const isTrueDiscount = valueSteal.adpValueDiff > 0;
         recs.push({
           type: 'scarcity',
-          title: 'Draft Board Faller / Steal',
-          badge: 'ADP DISCOUNT',
+          title: isTrueDiscount ? 'Draft Board Faller / Steal' : 'Top Consensus Value',
+          badge: isTrueDiscount ? 'ADP DISCOUNT' : 'BEST AVAILABLE',
           player: valueSteal,
-          rationale: 'Sliding past expected ADP (' + valueSteal.currentAdp + ') by +' + valueSteal.adpValueDiff + ' picks. Great value arbitrage.',
+          rationale: isTrueDiscount
+            ? 'Sliding past expected ADP (' + valueSteal.currentAdp + ') by +' + valueSteal.adpValueDiff + ' picks. Great value arbitrage.'
+            : 'Highest ranked consensus player near current ADP (' + valueSteal.currentAdp + ').',
           secondaryNote: valueSteal.pos_rank + ' | ' + valueSteal.team + ' | Proj ' + valueSteal.currentPts + ' pts',
           color: 'amber'
         });
