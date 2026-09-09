@@ -97,7 +97,8 @@ export default function DraftWarRoom() {
     return 'healthy';
   }, [espnConfigured, espnAutoSync, espnSyncErrors]);
 
-  const isSyncHealthy = syncState === 'healthy';
+  // Keep manual drafting actions enabled at all times during draft
+  const isSyncHealthy = false;
   const syncLockedTooltip =
     'Live Sync is active — picks are logged automatically from ESPN. Pause sync to draft manually.';
 
@@ -366,6 +367,19 @@ export default function DraftWarRoom() {
 
           // Authoritative snapshot reconciliation: updates if count, players, or order differ
           setDraftHistory(prev => {
+            // CRITICAL GUARD: If ESPN reports 0 picks but local state has picks,
+            // DO NOT wipe out picks! ESPN read API is cached/lagging during active draft.
+            if (newHistory.length === 0 && prev.length > 0) {
+              return prev;
+            }
+
+            // If ESPN has some picks, but user is ahead (manual picks made while ESPN lags),
+            // reconcile the known ESPN picks and keep the manual picks ahead of it.
+            if (newHistory.length > 0 && newHistory.length < prev.length) {
+              const merged = [...newHistory, ...prev.slice(newHistory.length)];
+              return merged;
+            }
+
             const hasChanged = newHistory.length !== prev.length ||
               newHistory.some((np, idx) => {
                 const op = prev[idx];
